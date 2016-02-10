@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>hSpy Examples</title>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles.min.css">
 </head>
 <body>
 	<header>
@@ -24,11 +24,17 @@
 				<a href="../hSpy.jquery.min.js" class="top_href" title="Download jQuery-edition">
 					<img src="resourses/jQuery.png" alt="jQuery">
 				</a>
-				<!--<a href="#" class="top_href" title="Download Pure-edition">
-					<img src="resourses/Pure.png" alt="jQuery">
-				</a>-->
-				<a href="../" class="top_href" title="Fork on GitHub">
-					<img src="resourses/github.png" alt="jQuery">
+				<a href="../hSpy.ie.jquery.min.js" class="top_href" title="Download jQuery-edition for IE8+">
+					<img src="resourses/ie.png" alt="jQuery IE8+">
+				</a>
+				<a href="#" class="top_href" title="Download Pure-edition" class="disabled">
+					<img src="resourses/Pure.png" alt="Pure">
+				</a>
+				<a href="#" class="top_href" title="Download Pure-edition for IE8+" class="disabled">
+					<img src="resourses/PureIE.png" alt="Pure IE8+">
+				</a>
+				<a href="https://github.com/In4inQ/JavaScript/tree/master/hSpy" class="top_href" title="Fork on GitHub">
+					<img src="resourses/github.png" alt="GitHub Lab">
 				</a>
 			</div>
 		</div>
@@ -140,7 +146,7 @@
 		</div>
 	</footer>
 	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="../hSpy.jquery.js"></script>
+	<script type="text/javascript" src="../hSpy.ie.jquery.min.js"></script>
 	<script type="text/javascript">
 		!function($window, $mainmenu){
 			$mainmenu
@@ -162,6 +168,12 @@
 					classTargets : "active",
 					middleLine  : function(){
 						return $window.height() / 3;
+					}
+				}, {
+					onAlwToggle : function(prevElement, newElement){
+						if(newElement && !newElement[1].hasClass("out")){
+							newElement[1].addClass("out");
+						}
 					}
 				})
 			;

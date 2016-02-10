@@ -1,10 +1,10 @@
 +function($, $window, blackBox, PLUGIN_NAME, VERSION){
 
-	  ////////////////////////////////////////////////////////
-	 /////////////////Default Settings///////////////////////
+	////////////////////////////////////////////////////////
+	/////////////////Default Settings///////////////////////
 	////////////////////////////////////////////////////////
 
-	var defOptions = 
+	var defOptions =
 
 		{
 			classTitles  : "current",  //String:.. | Classes established active title
@@ -12,10 +12,10 @@
 			spaces       : false,      //Boolean:..| If False, then it is not visible when not 1 unit stands next {False/True}
 			middleLine   : 0,          //Function or Number:..| The distance from the top/left of the window, below which is considered to be a dedicated unit
 			bottomLine   : 0,          //Function or Number:..| The distance from the bottom/right of the window, above which is considered to be a dedicated unit
-			axis         : "y"         //String:..| Axis {"x"/"y"}      
+			axis         : "y"         //String:..| Axis {"x"/"y"}
 		},
 
-	defHundlers = 
+		defHundlers =
 
 		{
 			onAlwToggle   : function(prevElem, currElem){  console.log("always", arguments) }, //Triggered when change target
@@ -24,12 +24,12 @@
 			onAfterSpace  : function(currElem){  console.log("after", arguments) }             //It triggered when moving from Space to the Block
 		}
 
-	;
+		;
 
-	  ////////////////////////////////////////////////////////
-	 /////////////////////Main Function//////////////////////
 	////////////////////////////////////////////////////////
-	
+	/////////////////////Main Function//////////////////////
+	////////////////////////////////////////////////////////
+
 	function hSpy_construct(scrollTargets, options, hundlers){
 
 		var toggleTargets = $(this), scrollTargetsArray,
@@ -37,19 +37,19 @@
 
 		options  = $.extend( {}, defOptions, typeof options == "object" && options );
 		hundlers = $.extend( {}, defHundlers, typeof hundlers == "object" && hundlers );
-	
+
 		/*
-			 #########################
-			### Checking for errors ###
-			 #########################
-		*/
+		 #########################
+		 ### Checking for errors ###
+		 #########################
+		 */
 
 		var  ERROR_PLAGINNAME = "hSpy said: "
 			,ERROR_LENGTH     = "Number of menu items is less than the target of number of blocks!"
 			,ERROR_NOELEMENT  = "Trying to plant something other than Elements?"
 			,ERROR_NULL       = "Emptiness? Really?"
-			,ERROR_TARGET     = "What are you trying to do? It's not even the elements!" 
-		;
+			,ERROR_TARGET     = "What are you trying to do? It's not even the elements!"
+			;
 
 		function throwError(err){
 			throw new Error(ERROR_PLAGINNAME + err);
@@ -68,7 +68,7 @@
 		}catch(e){
 
 			throwError( ERROR_TARGET );
-		
+
 		}
 
 		switch(false){
@@ -84,21 +84,21 @@
 		}
 
 		/*
-			 #####################
-			###    Initilize    ###
-			 #####################
-		*/
+		 #####################
+		 ###    Initilize    ###
+		 #####################
+		 */
 
 		blackBox.push(
 			{
 				switches  : toggleTargets,
-				scrollers : scrollTargetsArray.map(function(e, i){
+				scrollers : scrollTargets.map(function(i, e){
 					return {
-						element : e, 
+						element : e,
 						index   : i,
 						jq      : $(e)
 					}
-				}),
+				}).get(),
 				options : options,
 				hundlers : hundlers,
 				prevElem : null
@@ -119,8 +119,8 @@
 
 	hSpy_construct.version = VERSION;
 
-	  ////////////////////////////////////////////////////////
-	 /////////////////////And the main thing/////////////////
+	////////////////////////////////////////////////////////
+	/////////////////////And the main thing/////////////////
 	////////////////////////////////////////////////////////
 
 	function hSpy_monitor(blackItem){
@@ -129,7 +129,7 @@
 			return f instanceof Function
 				? f.apply( null, Array.prototype.slice.call( arguments, 1 ) )
 				: f
-			;
+				;
 		}
 
 		//Search purposes
@@ -140,13 +140,12 @@
 			lineBottom = $window[orientation ? "width" : "height"]() - lineTop - lineBottom;
 
 			function isAllow(e){
+				var rects = e.element[gE](), rectsAllow = orientation
+						? rects.left > lineBottom || rects.right < lineTop
+						: rects.top > lineBottom  || rects.bottom < lineTop
+					;
 
-				var rects = e.element[gE](), rectsAllow = orientation 
-					? rects.left > lineBottom || rects.right < lineTop
-					: rects.top > lineBottom  || rects.bottom < lineTop
-				; 
-
-				return !rectsAllow && document.contains( e.element );
+				return !rectsAllow && document.documentElement.contains( e.element );
 			}
 
 			function getMaxRect(rect, cord){
@@ -157,11 +156,11 @@
 			}
 
 			function getMax(p, t){
-				
+
 				var axis = orientation ? ["left", "right"] : ["top", "bottom"],
 					pRect = getMaxRect(p.element[gE](), orientation),
 					tRect  = getMaxRect(t.element[gE](), orientation)
-				;
+					;
 
 				return pRect < tRect ? p : t;
 
@@ -169,24 +168,25 @@
 
 			vi = vi.filter(isAllow);
 
+
 			return vi.length > 1 ? vi.reduce(getMax) : vi[ 0 ];
 		}
 
 		/*
-			.:realTarget - new block-data [switcher, scroller] or null
-			.:prevTarget - old block-data [switcher, scroller] or null
-			.:target - new comer block { element : Element, index : Number } or false
-		*/
+		 .:realTarget - new block-data [switcher, scroller] or null
+		 .:prevTarget - old block-data [switcher, scroller] or null
+		 .:target - new comer block { element : Element, index : Number } or false
+		 */
 
-		var options = blackItem.options, 
+		var options = blackItem.options,
 			hundlers = blackItem.hundlers, realTarget,
 			prevTarget = blackItem.prevElem !== null && [
-				blackItem.switches.eq(blackItem.prevElem),
-				blackItem.scrollers[blackItem.prevElem].jq
-			]
-		;
+					blackItem.switches.eq(blackItem.prevElem),
+					blackItem.scrollers[blackItem.prevElem].jq
+				]
+			;
 
-		var target = hSpy_maxPoint( 
+		var target = hSpy_maxPoint(
 			blackItem.scrollers,
 			Number( useF(options.middleLine) ) || 0,
 			Number( useF(options.bottomLine) ) || 0,
@@ -203,13 +203,13 @@
 			}else{
 
 				return "__-_---384---___--__";
-			
+
 			}
 
 		}else{
 
 			//Add ClassNames
-			realTarget = [ 
+			realTarget = [
 				blackItem.switches.eq(target.index).addClass( options.classTitles ),
 				blackItem.scrollers[target.index].jq.addClass( options.classTargets )
 			];
@@ -224,7 +224,7 @@
 				useF( hundlers.onRealToggle, prevTarget, realTarget );
 
 			}
-	
+
 		}
 
 
@@ -236,7 +236,12 @@
 
 		}
 
-		if(prevTarget !== realTarget && (!prevTarget || !realTarget || target.index !== blackItem.prevElem)){
+		if(prevTarget !== realTarget &&
+			(!prevTarget ||
+				!realTarget ||
+				target.index !== blackItem.prevElem
+			)
+		){
 			useF( hundlers.onAlwToggle, prevTarget, realTarget );
 		}
 
@@ -244,13 +249,13 @@
 		blackItem.prevElem = realTarget && target.index;
 	}
 
-	  ////////////////////////////////////////////////////////
-	 //////////////////Window hundler////////////////////////
+	////////////////////////////////////////////////////////
+	//////////////////Window hundler////////////////////////
 	////////////////////////////////////////////////////////
 
 
 	function hSpy_hundler(){
-		blackBox.forEach( hSpy_monitor );
+		blackBox.forEach(hSpy_monitor);
 	}
 
 

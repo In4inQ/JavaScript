@@ -20,6 +20,7 @@ a{ text-decoration: none; color: inherit; }
     transition: all 0.5s;
 }
 
+
 .example.vh{
     min-height: 100vh;
 }
@@ -30,7 +31,7 @@ a{ text-decoration: none; color: inherit; }
     transition: margin 1s;
 }
 
-.example.active{ opacity: 1; }
+.example.active, .example.out{ opacity: 1; }
 .example.active h1{ margin-bottom: 50px; }
 .example p, .documentation_dl dt{ font-family: "Comic Sans MS"; }
 .example, .example_inset{ box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.2); }
@@ -63,13 +64,17 @@ a{ text-decoration: none; color: inherit; }
     margin: 50px 0;
 }
 
-.top_href {
+.top_href{
     font-size: 1.1em;
     border-radius: 70px;
     background: #F7F707;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     border: 2px solid #F7F707;
     display: inline-block;
+}
+
+.top_href:active{
+    box-shadow: inset 3px 3px 0 #ddc823;
 }
 
 .top_href, .top_href > img{
