@@ -15,6 +15,7 @@ a{text-decoration:none;color:inherit}
 .top_buttonBlock{margin:50px 0}
 .top_href{font-size:1.1em;border-radius:70px;background:#F7F707;box-shadow:0 0 3px rgba(0,0,0,.1);border:2px solid #F7F707;display:inline-block}
 .top_href:active{box-shadow:inset 3px 3px 0 #ddc823}
+.top_href.disabled{opacity: 0.5;}
 .top_href,.top_href>img{width:80px;height:80px;-webkit-transition:all 1s;transition:all 1s}
 .top_href:hover>img{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}
 .top_href:first-child~.top_href{margin-left:20px}
