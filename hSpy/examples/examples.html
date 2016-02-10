@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hSpy Examples</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<ul id="mainmenu">
+			<li><a href="#top">What is the hSpy?</a></li>
+			<li><a href="#use">How to use it?</a></li>
+			<li><a href="#documentation">Documentation</a></li>
+			<li><a href="#footer">Contacts</a></li>
+		</ul>
+		<ul id="output"></ul>
+	</header>
+	<section class="example vh" id="top">
+		<div class="example_inset">
+			<h1>What is the hSpy?</h1>
+			<p>hSpy - this is what you've been looking for. What you all this time, I could not find or did not have time to write.</p>
+			<p>This plugin will help you to link your items on the menu with blocks on the page and switch between them during the transition to the desired unit.</p>
+			<div class="top_buttonBlock">
+				<a href="../hSpy.jquery.min.js" class="top_href" title="Download jQuery-edition">
+					<img src="resourses/jQuery.png" alt="jQuery">
+				</a>
+				<!--<a href="#" class="top_href" title="Download Pure-edition">
+					<img src="resourses/Pure.png" alt="jQuery">
+				</a>-->
+				<a href="../" class="top_href" title="Fork on GitHub">
+					<img src="resourses/github.png" alt="jQuery">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="example vh" id="use">
+		<div class="example_inset">
+			<h1>How to use it?</h1>
+			<div class="_code" style="float;left;">
+				<p>jQuery(<span class="_string">"#menu > li"</span>)<span class="_function">.hSpy</span>(</p>
+				   <p class="_to2"><span class="_string">"body > section"</span>, {</p>
+						<p class="_to3">classTargets : <span class="_string">"active"</span>,</p>
+						<p class="_to3">classTitles  : <span class="_string">"current active"</span>,</p>
+						<p class="_to3">spaces : <span class="_boolean">false</span>,</p>
+						<p class="_to3">middleLine : <span class="_number">0</span>,</p>
+						<p class="_to3">bottomLine : <span class="_number">0</span>,</p>
+						<p class="_to3">axis : <span class="_string">"y"</span></p>
+					<p class="_to2">}, {</p>
+				<p  class="_to2">onBeforeSpace : <span class="_function">function</span>(){ ... }</p>
+				<p  class="_to2">onAfterSpace : <span class="_function">function</span>(){ ... }</p>
+				<p  class="_to2">onRealToggle : <span class="_function">function</span>(){ ... }</p>
+				<p  class="_to2">onAlwToggle : <span class="_function">function</span>(){ ... }</p>
+				<p>}</p>
+			</div>
+			<div class="_code" style="float;right;margin-left:30px;">
+				<p>jQuery(<span class="_variable">$menuItems</span>).<span class="_function">hSpy</span>(
+					<p class="_to2"><span class="_variable">$sections</span>,  <span class="_comments">//Selector, Element, Array or jQuery</span></p>
+					<p class="_to2"><span class="_variable">$options</span>,  <span class="_comments">//Object options</span></p>
+					<p class="_to2"><span class="_variable">$hundlers</span>  <span class="_comments">//Object hundlers</span></p>
+				<p>);</p>
+			</div>
+		</div>
+	</section>
+	<section class="example vh" id="documentation">
+		<div>
+			<h1>Documentation</h1>
+			<div class="documentation_box">
+				<h2>Options</h2>
+				<dl class="documentation_dl">
+					<dt><span class="documentation_name">spaces</span><span class="documentation_value">Boolean</span></dt>
+					<dd>If False, then it is not visible when not 1 unit stands next</dd>
+					<dt><span class="documentation_name">classTitles</span><span class="documentation_value">String</span></dt>
+					<dd>Classes established active title</dd>
+					<dt><span class="documentation_name">ClassTargets</span><span class="documentation_value">String</span></dt>
+					<dd> Classes established active target</dd>
+					<dt><span class="documentation_name">middleLine</span><span class="documentation_value">Number/Function</span></dt>
+					<dd>The distance from the top/left of the window, below which is considered to be a dedicated unit</dd>
+					<dt><span class="documentation_name">bottomLine</span><span class="documentation_value">Number/Function</span></dt>
+					<dd>The distance from the bottom/right of the window, above which is considered to be a dedicated unit</dd>
+					<dt><span class="documentation_name">axis</span><span class="documentation_value">"x"/"y"</span></dt>
+					<dd>Axis</dd>
+				</dl>
+			</div>
+			<div class="documentation_box">
+				<h2>Hundlers</h2>
+				<dl class="documentation_dl">
+					<dt><span class="documentation_name">onBeforeSpace</span><span class="documentation_value">function(prevData){...}</span></dt>
+					<dd>It triggered when moving from Space to the Block</dd>
+					<dt><span class="documentation_name">onAfterSpace</span><span class="documentation_value">function(newData){...}</span></dt>
+					<dd>It triggered when moving from Block to a Space</dd>
+					<dt><span class="documentation_name">onAlwToggle</span><span class="documentation_value">function(prevData, newTarget){...}</span></dt>
+					<dd>Triggered when change target</dd>
+					<dt><span class="documentation_name">onRealToggle</span><span class="documentation_value">function(prevData, newTarget){...}</span></dt>
+					<dd>Triggered when change the target with anything on the Block</dd>
+				</dl>
+			</div>
+		</div>
+	</section>
+	<footer class="example" id="footer">
+		<div>
+			<h1>Contacts</h1>
+			<div class="footer_content">
+				<a href="http://github.com/In4inQ" class="footer_content-left">GitHub</a>
+				<a href="http://vk.com/in4in" class="footer_content-center">VK</a>
+				<a href="skype:kopojiek1?add" class="footer_content-right">Skype</a>
+			</div>
+			<p class="footer_who">
+				<span class="footer_who-name">hSpy</span> powered by <a href="http://github.com/In4inQ">In4in</a>
+			</p>
+		</div>
+	</footer>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="../hSpy.jquery.js"></script>
+	<script type="text/javascript">
+		!function($window, $mainmenu){
+			$mainmenu
+				.on("click", "a", function(e){
+
+					e = e || event;
+					"preventDefault" in e ? e.preventDefault() : (e.returnValue = false);
+
+					jQuery("body, html").animate(
+						{
+							scrollTop: jQuery(this.hash).offset().top
+						},
+						500
+					);
+				})
+				.children("li")
+				.hSpy(".example", {
+					classTitles : "active",
+					classTargets : "active",
+					middleLine  : function(){
+						return $window.height() / 3;
+					}
+				})
+			;
+		}(jQuery(window), jQuery("#mainmenu"))
+	</script>
+
+</body>
+</html>
