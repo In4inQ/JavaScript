@@ -1,0 +1,56 @@
+body{font:12pt Arial;min-width:500px}
+*{margin:0;padding:0;border:none}
+a{text-decoration:none;color:inherit}
+.example{text-align:center;border-width:10px;border-style:solid;padding:100px;opacity:.3;-webkit-transition:all .5s;transition:all .5s}
+.example.vh{min-height:100vh}
+.example h1{font-size:2em;font-family:Calibri,Arial;-webkit-transition:margin 1s;transition:margin 1s}
+.example.active,.example.out{opacity:1}
+.example.active h1{margin-bottom:50px}
+.documentation_dl dt,.example p{font-family:"Comic Sans MS"}
+.example,.example_inset{box-shadow:inset 0 0 3px rgba(0,0,0,.2)}
+.example_inset{border-width:5px;border-style:dashed;border-color:inherit}
+.example>div{width:90%;max-width:1200px;overflow:auto;line-height:30px;padding:50px;margin:50px auto}
+.example.vh>div{min-height:300px}
+#top{border-color:#f7f707;background-color:#ede02f}
+.top_buttonBlock{margin:50px 0}
+.top_href{font-size:1.1em;border-radius:70px;background:#F7F707;box-shadow:0 0 3px rgba(0,0,0,.1);border:2px solid #F7F707;display:inline-block}
+.top_href:active{box-shadow:inset 3px 3px 0 #ddc823}
+.top_href,.top_href>img{width:80px;height:80px;-webkit-transition:all 1s;transition:all 1s}
+.top_href:hover>img{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}
+.top_href:first-child~.top_href{margin-left:20px}
+#use{background:#555557;color:#C0B5B5;border-color:#C0B5B5}
+#use ._code{display:inline-block;width:40%}
+#documentation{border-color:#00bfff;background:#3498DB;color:#fff}
+.documentation_box{margin-bottom:100px;text-align:left}
+.documentation_box h2{margin-bottom:30px}
+.documentation_box h2:before{content:"::. "}
+.documentation_dl{margin-bottom:10px}
+.documentation_dl dt{margin:10px 0;font-size:1.02em}
+.documentation_dl dd{font-size:.9em;border-bottom:1px solid #fff;padding-bottom:30px;margin-bottom:30px}
+.documentation_name{font-width:bold}
+.documentation_value{margin-left:25px;font-size:.9em;color:#90DBF3}
+#footer{background:#343434;border-color:#333;color:#fff;min-height:33vh}
+.footer_who{margin-top:20px}
+.footer_who-name{color:#3498DB}
+.footer_who>a{border-bottom:1px dashed #fff}
+.footer_who>a:hover{border-bottom-style:solid}
+.footer_content>a{background:#f4f4f4;display:inline-block;color:#343434;text-align:center;-webkit-transition:all .5s;transition:all .5s;padding:15px;margin-left:10px;font-weight:700}
+.footer_content>a:hover{padding:10px}
+.footer_content-left,.footer_content-right{min-width:100px;border-radius:20px;position:relative}
+.footer_content-center{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);-webkit-transition:all 1s;transition:all 1s;border-radius:100%;min-width:30px;min-height:30px}
+#footer.active .footer_content-center{-webkit-transform:none;-ms-transform:none;transform:none}
+.footer_content-left:after,.footer_content-right:after{position:absolute;top:0;background:#343434;width:30px;height:100%;border-radius:100%;content:''}
+.footer_content-left:after{right:-10px}
+.footer_content-right:after{left:-10px}
+._code{vertical-align:top;text-align:left;min-width:300px;padding:20px;letter-spacing:1.2px;color:#fff;background:#4C4C4E;border:3px solid #48484A;border-radius:5px;font-size:.8em}
+._code ._to2{margin-left:20px}
+._code ._function{color:#adff2f}
+._code ._to3{margin-left:40px}
+._code ._variable{color:#00bfff}
+.code ._comments{color:#555557}
+._code ._string{color:#ff0}
+._code ._boolean,._code ._number{color:#8a2be2}
+#mainmenu{position:fixed;right:15px;top:15px;box-shadow:0 0 3px rgba(0,0,0,.2);padding:20px;width:200px;border:3px solid #f4f4f4;z-index:9999999;opacity:.5;border-radius:20px;background:#ede02f;background:-webkit-linear-gradient(-45deg,#ede02f 0,#ddc823 51%,#f7f707 100%);background:-webkit-linear-gradient(315deg, #ede02f 0, #ddc823 51%, #f7f707 100%);background:linear-gradient(135deg,#ede02f 0,#ddc823 51%,#f7f707 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ede02f', endColorstr='#f7f707', GradientType=1)}
+#mainmenu>li{border-bottom:1px solid #ede02f;padding:10px;color:#333;list-style-type:none;font-weight:700}
+#mainmenu>li.active,#mainmenu>li:hover{color:#fff;text-shadow:1px 1px 0 orange}
+#mainmenu:hover{opacity:1}
