@@ -73,6 +73,10 @@ a{ text-decoration: none; color: inherit; }
     display: inline-block;
 }
 
+.top_href.disabled{
+    opacity: 0.5;
+}
+
 .top_href:active{
     box-shadow: inset 3px 3px 0 #ddc823;
 }
