@@ -13,14 +13,14 @@ a{text-decoration:none;color:inherit}
 .example.vh>div{min-height:300px}
 #top{border-color:#f7f707;background-color:#ede02f}
 .top_buttonBlock{margin:50px 0}
-.top_href{font-size:1.1em;border-radius:70px;background:#F7F707;box-shadow:0 0 3px rgba(0,0,0,.1);border:2px solid #F7F707;display:inline-block}
+.top_href{font-size:1.1em;border-radius:70px;background:#F7F707;box-shadow:0 0 3px rgba(0,0,0,.1);border:2px solid #F7F707;vertical-align:top;display:inline-block}
+.top_href.disabled{opacity:.5}
+.top_href:nth-child(even){margin-top:100px}
 .top_href:active{box-shadow:inset 3px 3px 0 #ddc823}
-.top_href.disabled{opacity: 0.5;}
 .top_href,.top_href>img{width:80px;height:80px;-webkit-transition:all 1s;transition:all 1s}
 .top_href:hover>img{-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}
-.top_href:first-child~.top_href{margin-left:20px}
 #use{background:#555557;color:#C0B5B5;border-color:#C0B5B5}
-#use ._code{display:inline-block;width:40%}
+#use ._fRight{margin-top:50px}
 #documentation{border-color:#00bfff;background:#3498DB;color:#fff}
 .documentation_box{margin-bottom:100px;text-align:left}
 .documentation_box h2{margin-bottom:30px}
@@ -55,3 +55,6 @@ a{text-decoration:none;color:inherit}
 #mainmenu>li{border-bottom:1px solid #ede02f;padding:10px;color:#333;list-style-type:none;font-weight:700}
 #mainmenu>li.active,#mainmenu>li:hover{color:#fff;text-shadow:1px 1px 0 orange}
 #mainmenu:hover{opacity:1}
+@media all and (min-width:1120px){#use ._code{display:inline-block;width:43%}
+#use ._fRight{float:right;margin-left:2%;margin-top:0}
+#use ._fLeft{float:left}}

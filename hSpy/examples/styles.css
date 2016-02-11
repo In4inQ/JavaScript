@@ -70,11 +70,16 @@ a{ text-decoration: none; color: inherit; }
     background: #F7F707;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     border: 2px solid #F7F707;
+    vertical-align: top;
     display: inline-block;
 }
 
 .top_href.disabled{
     opacity: 0.5;
+}
+
+.top_href:nth-child(even){
+    margin-top: 100px;
 }
 
 .top_href:active{
@@ -91,19 +96,14 @@ a{ text-decoration: none; color: inherit; }
     transform: rotate(360deg);
 }
 
-.top_href:first-child ~ .top_href{
-    margin-left: 20px;
-}
-
 #use{
     background: #555557;
     color: #C0B5B5;
     border-color: #C0B5B5;
 }
 
-#use ._code{
-    display: inline-block;
-    width: 40%;
+#use ._fRight{
+    margin-top: 50px;
 }
 
 #documentation{
@@ -308,4 +308,22 @@ a{ text-decoration: none; color: inherit; }
 
 #mainmenu:hover{
     opacity: 1;
+}
+
+
+@media all and (min-width:1120px){
+    #use ._code{
+        display: inline-block;
+        width: 43%;
+    }
+
+    #use ._fRight{
+        float: right;
+        margin-left:2%;
+        margin-top: 0;
+    }
+
+    #use ._fLeft{
+        float: left;
+    }
 }
