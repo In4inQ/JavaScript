@@ -1,6 +1,13 @@
 body{
     font: 12pt "Arial";
     min-width: 500px;
+    transition: opacity 1s;
+}
+
+body.none{
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
 }
 
 *{
